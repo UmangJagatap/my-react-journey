@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Intro</title>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script src="https://www.unpkg.com/react@16.7.0/umd/react.production.min.js"></script>
+    <script src="https://www.unpkg.com/react-dom@16.7.0/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+
+        // const element = document.createElement("div");
+        // element.id = "root";
+        // element.className = "container";
+        // element.textContent = "Hello world!";
+        // document.body.appendChild(element);
+
+
+        // const root = document.getElementById("root");
+        // const element = React.createElement("div", {
+        //     className: "container",
+        //     children: "Hello world",
+        // });
+
+        // JSX
+        // const root = document.getElementById("root");
+        // const element = (
+        //     <div className="container">
+        //         Hello World
+        //         <span>What's up!</span>
+        //     </div>
+        // );
+
+        // const root = document.getElementById("root");
+        // const greeting = "Hello, world!";
+        // const element = (
+        //interpolation
+        // <div className="container">
+        //     {greeting}
+        //     <span>What's up!</span>
+        // </div>
+
+        // fragment
+
+        // <>
+        //     <span>{greeting}</span>
+        //     <span>What's up!</span>
+        // </>
+        // );
+
+        const handleClick = () => {
+            alert("Element is clicked");
+        };
+
+        const root = document.getElementById("root");
+        const message = "Hello";
+        const Greeting = (props) => <p {...props}>{props.message}</p>
+
+        const element = (
+            <>
+                <Greeting message="Hello" title="this will be shown on hovering" onClick="{handleClick}" />
+                <Greeting message="World 😍" />
+                <Greeting message="What's up!" />
+            </>
+        );
+
+        ReactDOM.render(element, root);
+    </script>
+</body>
+
+</html>
