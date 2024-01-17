@@ -1,12 +1,18 @@
 /* eslint-disable react/prop-types */
 // import React from 'react'
 
-export default function TodoList({ todos, onTodoChange, onTodoDelete }) {
+import { useContext } from "react";
+import { TodosDispatchContext } from "./TodoApp";
+import { TodosContext } from "./TodoApp";
+
+
+export default function TodoList() {
+    const todos = useContext(TodosContext);
     return (
         <ul className="todo-list">
             {todos.map((todo) => (
                 <li key={todo.id}>
-                    <Todo todo={todo} onChange={onTodoChange} onDelete={onTodoDelete} />
+                    <Todo todo={todo} />
                 </li>
             ))}
         </ul>
@@ -14,15 +20,23 @@ export default function TodoList({ todos, onTodoChange, onTodoDelete }) {
 
 }
 
-function Todo({ todo, onChange, onDelete }) {
+function Todo({ todo }) {
+    const dispatch = useContext(TodosDispatchContext);
     return (
         <>
             <input type="checkbox" name={`${todo.id}-done`} id={`${todo.id}-done`} checked={todo.done} onChange={(e) => {
-                onChange({ ...todo, done: e.target.checked })
+                dispatch({
+                    type: "change",
+                    todo: { ...todo, done: e.target.checked },
+                });
+
             }} />
 
             {todo.text}
-            <button onClick={() => onDelete(todo.id)}>❌</button>
+            <button onClick={() => dispatch({
+                type: 'delete',
+                id: todo.id,
+            })}>❌</button>
         </>
 
     );
