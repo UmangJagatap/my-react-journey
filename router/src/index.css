@@ -24,7 +24,7 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
+  /* display: flex; */
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
@@ -66,3 +66,35 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.layout{
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "header header header"
+    "content content content"
+    "footer footer footer";
+}
+
+.header{
+  border-bottom:solid 1px #f9f9f9;
+  grid-area: header;
+}
+
+.header nav ul{
+  display: flex;
+  list-style: none;
+  justify-content: space-evenly;
+}
+
+.content{
+  grid-area: content;
+}
+
+.footer{
+  border-top:solid 1px #f9f9f9;
+  grid-area: footer;
+}
+
