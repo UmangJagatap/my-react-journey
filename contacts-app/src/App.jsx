@@ -26,9 +26,25 @@ function Header({ onSearch }) {
         `} onSubmit={onSubmit}>
         <input css={css`
             padding:8px;
+            border-radius:6px;
+            border-color:royalblue;
         `}
           ref={searchElementRef} type="text" />
-        <button>Search</button>
+        <button css={css`
+            background-color:white;
+            border-color:royalblue;
+            color:royalblue;
+            width:7rem;
+            font-size:14px;
+            border-radius:6px;
+            cursor:pointer;
+            transition: all 0.3s ease-in-out;
+            :hover{
+              border:none;
+              background-color:royalblue;
+              color:white;
+            }
+        `}>Search</button>
       </form>
     </header>
   );
@@ -78,7 +94,7 @@ export function Layout() {
   return (
     <main css={css`
       display:grid;
-      grid-template-columns: minmax(250px, 25%)1fr;
+      grid-template-columns: minmax(22rem, 25%)1fr;
       height: 100%;
     `}>
       <Sidenav />
