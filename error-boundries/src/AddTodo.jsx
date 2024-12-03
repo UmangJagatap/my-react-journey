@@ -2,16 +2,15 @@
 
 import { useContext } from "react";
 import { useState } from "react";
-import TodosDispatchContext from "./TodoApp";
+import { TodosDispatchContext } from "./TodoApp";
 
 
 let nextId = 4;
-// eslint-disable-next-line react/prop-types
 export default function AddTodo() {
     const dispatch = useContext(TodosDispatchContext);
     const [text, setText] = useState("");
     return (
-        <div className="add-todo-container">
+        <div className="add-todo-container" >
             <input
                 type="text"
                 name="newTodo"
@@ -26,7 +25,6 @@ export default function AddTodo() {
                         id: nextId++,
                         text,
                     });
-
                     setText("");
                 }}
             >

@@ -19,7 +19,7 @@ export default function Layout() {
             <CssBaseline />
             <Header />
             <main>
-                <Outlet/>
+                <Outlet />
             </main>
             <footer></footer>
         </ThemeProvider>

@@ -4,28 +4,28 @@ import { useState, Component } from 'react'
 import './App.css'
 import CounterReducer from './CounterReducer';
 
-class ErrorBoundary extends Component {
-  state = { error: null };
-  static getDerivedStateFromError(error) {
-    return { error };
-  }
-  render() {
-    const { error } = this.state;
-    if (error) {
-      return <this.props.FallbackComponent error={error} />;
-    }
-    return this.props.children;
-  }
-}
+// class ErrorBoundary extends Component {
+//   state = { error: null };
+//   static getDerivedStateFromError(error) {
+//     return { error };
+//   }
+//   render() {
+//     const { error } = this.state;
+//     if (error) {
+//       return <this.props.FallbackComponent error={error} />;
+//     }
+//     return this.props.children;
+//   }
+// }
 
-function FallbackComponent({ error }) {
-  return (
-    <div>
-      <p>Somthing went wrong</p>
-      <pre>{error.message}</pre>
-    </div>
-  );
-}
+// function FallbackComponent({ error }) {
+//   return (
+//     <div>
+//       <p>Somthing went wrong</p>
+//       <pre>{error.message}</pre>
+//     </div>
+//   );
+// }
 
 function Breaker() {
   const [count, setCount] = useState(0)
@@ -46,15 +46,15 @@ function AnotherComponent() {
 
 function App() {
   return (
-      <div className="App">
-        {/* <ErrorBoundary FallbackComponent = {FallbackComponent}>
+    <div className="App">
+      {/* <ErrorBoundary FallbackComponent = {FallbackComponent}>
       <Breaker/>
     </ErrorBoundary>
     <AnotherComponent /> */}
-        <CounterReducer />
+      <CounterReducer />
 
-      </div>
-    
+    </div>
+
   );
 
 }

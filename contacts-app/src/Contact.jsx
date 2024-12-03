@@ -5,7 +5,7 @@ import { css } from "@emotion/react";
 import { useLoaderData } from "react-router-dom"
 
 export default function Contact() {
-  const { name: { first, last, title }, email, picture, cell, location: { city, state } } = useLoaderData();
+  const { name: { first, last, title }, email, picture, cell } = useLoaderData();
   return (
     <section css={css`
         margin:1rem;
@@ -27,7 +27,7 @@ export default function Contact() {
         <h2>{title}.{first} {last}</h2>
         <h1>Phone:  {cell}</h1>
         <h1>Email:  {email}</h1>
-        <h1>Location: {city},{state}</h1>
+        {/* <h1>Location: {city},{state}</h1> */}
       </article>
     </section>
   );

@@ -84,7 +84,7 @@ export default function TodoApp() {
     return (
         <TodosContext.Provider value={todos}>
             <TodosDispatchContext.Provider value={dispatch}>
-                <h2>Todos</h2>
+                <h2 style={{ textAlign: "center", fontFamily: "Arial, Helvetica, sans-serif", fontSize: "2rem" }}>Todo App</h2>
                 {/* <AddTodo onAddTodo={handleAddTodo} /> */}
                 {/* <TodoList onTodoChange={handleTodoChange} onTodoDelete={handleTodoDelete} /> */}
                 <AddTodo />
